@@ -1,4 +1,21 @@
-import os 
+import os
+import signal 
+
+
+
+def handler(signum, frame):
+
+	pb_off = "pactl unload-module module-loopback"
+
+	print("\nTERMINATING")
+	
+	os.system(pb_off)
+
+	exit()
+    
+ 
+signal.signal(signal.SIGINT, handler)
+
 
 
 def main():
@@ -21,10 +38,9 @@ if __name__ == '__main__':
 
 	print("simple app by v01d")
 
-	print("website --> v01d.dev")
+	print("website --> https://v01d.dev")
 
 	print()
 
 	main()
-
 
